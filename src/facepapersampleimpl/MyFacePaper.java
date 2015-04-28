@@ -5,13 +5,19 @@
  */
 package facepapersampleimpl;
 
+import facebook4j.Post;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import uy.edu.ucu.p2.facebook.adt.Autor;
+import uy.edu.ucu.p2.facebook.adt.ILista;
+import uy.edu.ucu.p2.facebook.adt.Lista;
+import uy.edu.ucu.p2.facebook.adt.NodoPost;
 import uy.edu.ucu.p2.facebook.api.FacePaperImpl;
 import uy.edu.ucu.p2.facebook.api.FacepaperConnector;
 import uy.edu.ucu.p2.facebook.api.IFacePaper;
-import uy.edu.ucu.p2.facebook.api.ILista;
-import uy.edu.ucu.p2.facebook.api.INodoPost;
+import uy.edu.ucu.p2.facebook.adt.INodoPost;
 import uy.edu.ucu.p2.facebook.api.exceptions.FacePaperException;
 import uy.edu.ucu.p2.facebook.server.Command;
 
@@ -39,7 +45,7 @@ public class MyFacePaper implements IFacePaper{
      * @return obtiene del conector las noticias (getHome) y cargar la lista de NodoPost
      */
     @Override
-    public ILista<INodoPost> obtenerNoticias() {
+    public ILista<INodoPost> obtenerNoticias() throws FacePaperException {
        
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -49,9 +55,19 @@ public class MyFacePaper implements IFacePaper{
      * @return obtiene del conector tus Posts (getFeed) y cargar la lista de NodoPost
      */
     @Override
-    public ILista<INodoPost> obtenerMuro() {
+    public ILista<INodoPost> obtenerMuro() throws FacePaperException{
+        Post[] posts = this.getFacepaperConnector().getHome(123);
+        ILista<INodoPost> result = new Lista<INodoPost>();
+      
+        List<List> a  = new ArrayList<List>();
         
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for (Post p: posts){
+            NodoPost nodo = new NodoPost(p.getId(), null, 0, null,p.getDescription());
+            result.insertar(nodo);
+        }
+        
+        return result;
+      
     }
 
     /**
@@ -78,7 +94,5 @@ public class MyFacePaper implements IFacePaper{
     public void conectar(Command cmnd) throws FacePaperException {
         facepaperConnector.conectar(cmnd);
     }
-    
-    
     
 }

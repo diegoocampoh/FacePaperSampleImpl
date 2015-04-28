@@ -9,6 +9,7 @@ import facebook4j.Post;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import uy.edu.ucu.p2.facebook.api.IFacePaper;
+import uy.edu.ucu.p2.facebook.adt.INodoPost;
 import uy.edu.ucu.p2.facebook.api.exceptions.FacePaperException;
 import uy.edu.ucu.p2.facebook.server.Command;
 
@@ -143,8 +144,8 @@ public class GUI extends javax.swing.JFrame {
     public void conectado(){
         try {
             //Obtiene data
-            Post unPost = myFacePaper.getFacepaperConnector().getHome(123)[0];
-            String mensaje = unPost.getMessage() == null ? unPost.getDescription() : unPost.getMessage();
+            INodoPost unPost = myFacePaper.obtenerMuro().getPrimero();
+            String mensaje = unPost.getTexto();
             
             //Actualiza GUI
             this.jLabelStatus.setText("Conectado");
