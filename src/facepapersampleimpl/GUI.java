@@ -144,8 +144,12 @@ public class GUI extends javax.swing.JFrame {
     public void conectado(){
         try {
             //Obtiene data
-            INodoPost unPost = myFacePaper.obtenerMuro().getPrimero();
-            String mensaje = unPost.getTexto();
+            INodoPost unPost    = myFacePaper.obtenerMuro().getPrimero();
+            String mensaje      = "";
+            while(unPost.getTexto() == null){
+                unPost      = (INodoPost)unPost.getSiguiente();
+                mensaje     = unPost.getTexto();
+            }
             
             //Actualiza GUI
             this.jLabelStatus.setText("Conectado");
