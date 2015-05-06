@@ -13,8 +13,8 @@ import org.junit.Assert;
 import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.Test;
-import uy.edu.ucu.p2.facebook.adt.ILista;
-import uy.edu.ucu.p2.facebook.adt.INodoPost;
+import uy.edu.ucu.p2.adt.impl.*;
+import uy.edu.ucu.p2.adt.interfaces.*;
 import uy.edu.ucu.p2.facebook.api.exceptions.FacePaperException;
 import uy.edu.ucu.p2.facebook.server.Command;
 

@@ -19,7 +19,9 @@ import java.util.List;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import uy.edu.ucu.p2.facebook.adt.Autor;
+import uy.edu.ucu.p2.adt.impl.Autor;
+import uy.edu.ucu.p2.adt.impl.*;
+import uy.edu.ucu.p2.adt.interfaces.*;
 import uy.edu.ucu.p2.facebook.api.exceptions.FacePaperException;
 import uy.edu.ucu.p2.facebook.server.Command;
 

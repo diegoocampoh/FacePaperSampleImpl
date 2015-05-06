@@ -8,8 +8,8 @@ package facepapersampleimpl;
 import facebook4j.Post;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import uy.edu.ucu.p2.adt.interfaces.INodoPost;
 import uy.edu.ucu.p2.facebook.api.IFacePaper;
-import uy.edu.ucu.p2.facebook.adt.INodoPost;
 import uy.edu.ucu.p2.facebook.api.exceptions.FacePaperException;
 import uy.edu.ucu.p2.facebook.server.Command;
 

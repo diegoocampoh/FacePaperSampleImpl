@@ -10,14 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import uy.edu.ucu.p2.facebook.adt.Autor;
-import uy.edu.ucu.p2.facebook.adt.ILista;
-import uy.edu.ucu.p2.facebook.adt.Lista;
-import uy.edu.ucu.p2.facebook.adt.NodoPost;
+import uy.edu.ucu.p2.adt.impl.Lista;
+import uy.edu.ucu.p2.adt.impl.NodoPost;
+import uy.edu.ucu.p2.adt.interfaces.ILista;
+import uy.edu.ucu.p2.adt.interfaces.INodoPost;
+
 import uy.edu.ucu.p2.facebook.api.FacePaperImpl;
 import uy.edu.ucu.p2.facebook.api.FacepaperConnector;
 import uy.edu.ucu.p2.facebook.api.IFacePaper;
-import uy.edu.ucu.p2.facebook.adt.INodoPost;
+
 import uy.edu.ucu.p2.facebook.api.exceptions.FacePaperException;
 import uy.edu.ucu.p2.facebook.server.Command;
 
@@ -65,9 +66,7 @@ public class MyFacePaper implements IFacePaper{
             NodoPost nodo = new NodoPost(p.getId(), null, 0, null,p.getDescription());
             result.insertar(nodo);
         }
-        
         return result;
-      
     }
 
     /**
