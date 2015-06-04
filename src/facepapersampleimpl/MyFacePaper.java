@@ -10,10 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import uy.edu.ucu.p2.adt.impl.Autor;
 import uy.edu.ucu.p2.adt.impl.Lista;
 import uy.edu.ucu.p2.adt.impl.NodoPost;
 import uy.edu.ucu.p2.adt.interfaces.ILista;
 import uy.edu.ucu.p2.adt.interfaces.INodoPost;
+import uy.edu.ucu.p2.adt.interfaces.Palabra;
 
 import uy.edu.ucu.p2.facebook.api.FacePaperImpl;
 import uy.edu.ucu.p2.facebook.api.FacepaperConnector;
@@ -57,7 +59,7 @@ public class MyFacePaper implements IFacePaper{
      */
     @Override
     public ILista<INodoPost> obtenerMuro() throws FacePaperException{
-        Post[] posts = this.getFacepaperConnector().getHome(123);
+        Post[] posts = this.getFacepaperConnector().getFeed(200);
         ILista<INodoPost> result = new Lista<INodoPost>();
       
         List<List> a  = new ArrayList<List>();
@@ -92,6 +94,41 @@ public class MyFacePaper implements IFacePaper{
 
     public void conectar(Command cmnd) throws FacePaperException {
         facepaperConnector.conectar(cmnd);
+    }
+
+    @Override
+    public ILista<Palabra> obtenerPalabrasFrecuencias() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean eliminarPalabra(Palabra plbr) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean eliminarAutor(Autor autor) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ILista<Autor> obtenerAutoresPalabras() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ILista<Palabra> obtenerPalabrasFrecuenciasPorAutor(Autor autor) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public ILista<INodoPost> obtenerPostsAutorPorPalabra(Autor autor, Palabra plbr) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void cargarPalabrasIrrelevantes(ILista<Palabra> ilista) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
